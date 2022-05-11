@@ -12,6 +12,7 @@
 		28DCAE49282C4A5E006A4CBE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DCAE48282C4A5E006A4CBE /* ViewController.swift */; };
 		28DCAE4E282C4A61006A4CBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28DCAE4D282C4A61006A4CBE /* Assets.xcassets */; };
 		28DCAE51282C4A61006A4CBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28DCAE4F282C4A61006A4CBE /* LaunchScreen.storyboard */; };
+		28DCAE59282C4BF0006A4CBE /* CustomModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DCAE58282C4BF0006A4CBE /* CustomModalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		28DCAE4D282C4A61006A4CBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28DCAE50282C4A61006A4CBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		28DCAE52282C4A61006A4CBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28DCAE58282C4BF0006A4CBE /* CustomModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				28DCAE44282C4A5E006A4CBE /* AppDelegate.swift */,
 				28DCAE46282C4A5E006A4CBE /* SceneDelegate.swift */,
 				28DCAE48282C4A5E006A4CBE /* ViewController.swift */,
+				28DCAE58282C4BF0006A4CBE /* CustomModalViewController.swift */,
 				28DCAE4D282C4A61006A4CBE /* Assets.xcassets */,
 				28DCAE4F282C4A61006A4CBE /* LaunchScreen.storyboard */,
 				28DCAE52282C4A61006A4CBE /* Info.plist */,
@@ -135,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28DCAE49282C4A5E006A4CBE /* ViewController.swift in Sources */,
+				28DCAE59282C4BF0006A4CBE /* CustomModalViewController.swift in Sources */,
 				28DCAE45282C4A5E006A4CBE /* AppDelegate.swift in Sources */,
 				28DCAE47282C4A5E006A4CBE /* SceneDelegate.swift in Sources */,
 			);
