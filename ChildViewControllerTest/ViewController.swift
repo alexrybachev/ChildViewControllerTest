@@ -75,6 +75,8 @@ class ViewController: UIViewController {
     
     // MARK: - Methods
     @objc private func presentModalController() {
-        print("tap button Get Started")
+        let vc = CustomModalViewController()
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: false)
     }
 }
