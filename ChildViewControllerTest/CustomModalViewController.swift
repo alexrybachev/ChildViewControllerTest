@@ -37,6 +37,7 @@ class CustomModalViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupConstraints()
+        setupPanGesture()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -105,6 +106,20 @@ class CustomModalViewController: UIViewController {
         } completion: { _ in
             self.dismiss(animated: false)
         }
-
+    }
+    
+    private func setupPanGesture() {
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
+        panGesture.delaysTouchesBegan = false
+        panGesture.delaysTouchesEnded = false
+        view.addGestureRecognizer(panGesture)
+    }
+    
+    @objc private func handlePanGesture(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: view)
+        print("Pan gesture y offset: \(translation.y)")
+        
+        let isDraggingDown = translation.y > 0
+        print("Dragging direction: \(isDraggingDown ? "going down" : "going up")")
     }
 }
