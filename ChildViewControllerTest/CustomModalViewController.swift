@@ -41,6 +41,7 @@ class CustomModalViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        animateShowDimmedView()
         animatePresentContainer()
     }
     
@@ -77,10 +78,18 @@ class CustomModalViewController: UIViewController {
         containerViewBottomConstraint?.isActive = true
     }
     
+    // MARK: - Methods
     private func animatePresentContainer() {
         UIView.animate(withDuration: 0.3) {
             self.containerViewBottomConstraint?.constant = 0
             self.view.layoutIfNeeded()
+        }
+    }
+    
+    private func animateShowDimmedView() {
+        dimmedView.alpha = 0
+        UIView.animate(withDuration: 0.4) {
+            self.dimmedView.alpha = self.maxDimmedAlpha
         }
     }
 }
