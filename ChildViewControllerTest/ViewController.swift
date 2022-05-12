@@ -9,15 +9,15 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    // 1. Defined UI views
-    lazy var titleLabel: UILabel = {
+    // MARK: - UI Elements
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Lorem Ipsum"
         label.font = .boldSystemFont(ofSize: 32)
         return label
     }()
     
-    lazy var textView: UITextView = {
+    private lazy var textView: UITextView = {
         let textView = UITextView(frame: .zero)
         textView.font = UIFont.systemFont(ofSize: 16)
         textView.isEditable = false
@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         return textView
     }()
     
-    lazy var registerButton: UIButton = {
+    private lazy var registerButton: UIButton = {
         let button = UIButton()
         button.setTitle("Get Started", for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         return button
     }()
     
-    lazy var containerStackView: UIStackView = {
+    private lazy var containerStackView: UIStackView = {
         let spacer = UIView()
         let stackView = UIStackView(arrangedSubviews: [titleLabel, textView, spacer, registerButton])
         stackView.axis = .vertical
@@ -43,45 +43,38 @@ class ViewController: UIViewController {
         return stackView
     }()
     
-    // 2
+    // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         setupConstraints()
-        // 3. Add action
+        
         registerButton.addTarget(self, action: #selector(presentModalController), for: .touchUpInside)
     }
     
-    func setupView() {
-        // cosmetics
+    // MARK: - Setup UI Elements
+    private func setupView() {
         view.backgroundColor = .systemBackground
     }
     
-    // 4. Add subviews and set constraints
-    func setupConstraints() {
+    private func setupConstraints() {
         view.addSubview(containerStackView)
         containerStackView.translatesAutoresizingMaskIntoConstraints = false
         
         let safeArea = view.safeAreaLayoutGuide
-        // 5. Call .activate method to enable the defined constraints
+        
         NSLayoutConstraint.activate([
-            // 6. Set containerStackView edges to superview with 24 spacing
             containerStackView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 24),
             containerStackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -24),
             containerStackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 24),
             containerStackView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -24),
-            // 7. Set button height
+            
             registerButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
-    // 8. To be updated
-    @objc func presentModalController() {
-        let vc = CustomModalViewController()
-            vc.modalPresentationStyle = .overCurrentContext
-            // Keep animated value as false
-            // Custom Modal presentation animation will be handled in VC itself
-            self.present(vc, animated: false)
+    // MARK: - Methods
+    @objc private func presentModalController() {
+        print("tap button Get Started")
     }
 }
-
