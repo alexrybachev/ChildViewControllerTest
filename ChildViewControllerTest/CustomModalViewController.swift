@@ -92,4 +92,19 @@ class CustomModalViewController: UIViewController {
             self.dimmedView.alpha = self.maxDimmedAlpha
         }
     }
+    
+    private func animatedDismissView() {
+        UIView.animate(withDuration: 0.3) {
+            self.containerViewBottomConstraint?.constant = self.defaultHeight
+            self.view.layoutIfNeeded()
+        }
+        
+        dimmedView.alpha = maxDimmedAlpha
+        UIView.animate(withDuration: 0.4) {
+            self.dimmedView.alpha = 0
+        } completion: { _ in
+            self.dismiss(animated: false)
+        }
+
+    }
 }
