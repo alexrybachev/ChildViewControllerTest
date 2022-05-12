@@ -25,6 +25,30 @@ class CustomModalViewController: UIViewController {
         return view
     }()
     
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Get Started"
+        label.font = .boldSystemFont(ofSize: 20)
+        return label
+    }()
+    
+    private lazy var notesLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sem fringilla ut morbi tincidunt augue interdum. \n\nUt morbi tincidunt augue interdum velit euismod in pellentesque massa. Pulvinar etiam non quam lacus suspendisse faucibus interdum posuere. Mi in nulla posuere sollicitudin aliquam ultrices sagittis orci a. Eget nullam non nisi est sit amet. Odio pellentesque diam volutpat commodo. Id eu nisl nunc mi ipsum faucibus vitae.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sem fringilla ut morbi tincidunt augue interdum. Ut morbi tincidunt augue interdum velit euismod in pellentesque massa."
+        label.font = .systemFont(ofSize: 16)
+        label.textColor = .darkGray
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private lazy var contentStackView: UIStackView = {
+        let spacer = UIView()
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, notesLabel, spacer])
+        stackView.axis = .vertical
+        stackView.spacing = 12
+        return stackView
+    }()
+    
     // MARK: - Private Properties
     private let maxDimmedAlpha: CGFloat = 0.6
     private let defaultHeight: CGFloat = 300
@@ -57,8 +81,10 @@ class CustomModalViewController: UIViewController {
     private func setupConstraints() {
         view.addSubview(dimmedView)
         view.addSubview(containerView)
+        containerView.addSubview(contentStackView)
         dimmedView.translatesAutoresizingMaskIntoConstraints = false
         containerView.translatesAutoresizingMaskIntoConstraints = false
+        contentStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             
@@ -69,6 +95,11 @@ class CustomModalViewController: UIViewController {
             
             containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            contentStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 32),
+            contentStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20),
+            contentStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
+            contentStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20)
         ])
         
         // Set container to default height
